@@ -1,0 +1,49 @@
+{
+  "name": "digital-house-backend",
+  "version": "1.0.0",
+  "description": "Digital House - Community-based social networking platform backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": ["social-network", "community", "realtime"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "typescript": "^5.3.3",
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.3",
+    "mongodb": "^6.3.0",
+    "mysql2": "^3.6.5",
+    "socket.io": "^4.7.2",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "firebase-admin": "^13.6.0",
+    "@supabase/supabase-js": "^2.90.1",
+    "cloudinary": "^2.8.0",
+    "onesignal-node": "^3.4.0",
+    "helmet": "^7.1.0",
+    "express-validator": "^7.0.0",
+    "bcryptjs": "^2.4.3",
+    "uuid": "^9.0.1",
+    "axios": "^1.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.5",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/uuid": "^9.0.7",
+    "ts-node-dev": "^2.0.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.11",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0"
+  }
+}
