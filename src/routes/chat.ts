@@ -23,7 +23,7 @@ router.get(
       const limit = parseInt(req.query.limit as string) || 20;
 
       // TODO: Fetch conversations from MongoDB with pagination
-      const conversations = [];
+      const conversations: any[] = [];
       const total = 0;
 
       ApiResponseHandler.paginated(res, conversations, page, limit, total, 200);
@@ -52,7 +52,7 @@ router.get(
       const limit = parseInt(req.query.limit as string) || 20;
 
       // TODO: Fetch messages from MongoDB with pagination
-      const messages = [];
+      const messages: any[] = [];
       const total = 0;
 
       ApiResponseHandler.paginated(res, messages, page, limit, total, 200);

@@ -186,7 +186,7 @@ router.get(
       const limit = parseInt(req.query.limit as string) || 20;
 
       // TODO: Fetch followers from database with pagination
-      const followers = [];
+      const followers: any[] = [];
       const total = 0;
 
       ApiResponseHandler.paginated(res, followers, page, limit, total, 200);
@@ -215,7 +215,7 @@ router.get(
       const limit = parseInt(req.query.limit as string) || 20;
 
       // TODO: Fetch following from database with pagination
-      const following = [];
+      const following: any[] = [];
       const total = 0;
 
       ApiResponseHandler.paginated(res, following, page, limit, total, 200);

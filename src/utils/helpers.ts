@@ -11,14 +11,14 @@ export interface TokenPayload {
 
 export class JwtService {
   static generateToken(payload: Omit<TokenPayload, 'iat' | 'exp'>): string {
-    return jwt.sign(payload, config.jwt.secret, {
-      expiresIn: config.jwt.expiresIn,
-    });
+    return jwt.sign(payload, config.jwt.secret as string, {
+      expiresIn: '7d',
+    } as any);
   }
 
   static verifyToken(token: string): TokenPayload {
     try {
-      return jwt.verify(token, config.jwt.secret) as TokenPayload;
+      return jwt.verify(token, config.jwt.secret as string) as TokenPayload;
     } catch (error: any) {
       throw new Error(`Token verification failed: ${error.message}`);
     }

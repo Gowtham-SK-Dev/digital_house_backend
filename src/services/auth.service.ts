@@ -5,7 +5,7 @@
 
 import { config } from '@config/config';
 import { JwtService, IdGenerator } from '@utils/helpers';
-import { User, AuthToken, OTPRequest } from '@types/index';
+import type { User, AuthToken, OTPRequest } from '../types/index';
 
 interface OTPStore {
   [email: string]: {

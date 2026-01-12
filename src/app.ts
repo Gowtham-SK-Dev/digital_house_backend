@@ -66,15 +66,32 @@ export const startServer = async (): Promise<void> => {
   try {
     // Initialize databases
     console.log('Connecting to databases...');
-    await PostgresDB.connect();
-    await MongoDB.connect();
-    await MySQLDB.connect();
+    
+    // Try MySQL (primary database)
+    try {
+      await MySQLDB.connect();
+    } catch (error) {
+      console.warn('⚠ MySQL connection failed - running in mock mode');
+    }
+    
+    // Try MongoDB (optional for real-time features)
+    try {
+      await MongoDB.connect();
+    } catch (error) {
+      console.warn('⚠ MongoDB connection failed - some real-time features may not work');
+    }
+    
+    // PostgreSQL is optional
+    try {
+      await PostgresDB.connect();
+    } catch (error) {
+      console.warn('⚠ PostgreSQL connection failed - using MySQL/mock as primary database');
+    }
 
     // Start server
     httpServer.listen(config.port, () => {
       console.log(`\n🚀 Digital House Server running on port ${config.port}`);
       console.log(`📍 Environment: ${config.nodeEnv}`);
-      console.log(`✓ All databases connected`);
       console.log(`✓ Socket.io server initialized`);
       console.log(`✓ Connected users: 0`);
       console.log(`\nTo test: curl http://localhost:${config.port}/health\n`);

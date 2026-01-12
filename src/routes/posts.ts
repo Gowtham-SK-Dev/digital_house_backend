@@ -21,7 +21,7 @@ router.get('/feed', authMiddleware, async (req: AuthRequest, res: Response) => {
 
     // TODO: Fetch feed posts from database with pagination
     // Performance optimization: Use indexed queries for followed users
-    const posts = [];
+    const posts: any[] = [];
     const total = 0;
 
     ApiResponseHandler.paginated(res, posts, page, limit, total, 200);
@@ -277,7 +277,7 @@ router.get(
       const limit = parseInt(req.query.limit as string) || 20;
 
       // TODO: Fetch comments from database with pagination
-      const comments = [];
+      const comments: any[] = [];
       const total = 0;
 
       ApiResponseHandler.paginated(res, comments, page, limit, total, 200);
