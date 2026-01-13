@@ -13,6 +13,7 @@ import authRoutes from '@routes/auth';
 import userRoutes from '@routes/users';
 import postRoutes from '@routes/posts';
 import chatRoutes from '@routes/chat';
+import profileRoutes from '@routes/profiles';
 
 export const createApp = (): { app: Express; httpServer: any; chatService: ChatService } => {
   const app = express();
@@ -48,6 +49,7 @@ export const createApp = (): { app: Express; httpServer: any; chatService: ChatS
   app.use('/api/users', authMiddleware, userRoutes);
   app.use('/api/posts', authMiddleware, postRoutes);
   app.use('/api/chat', authMiddleware, chatRoutes);
+  app.use('/api/profiles', profileRoutes);
 
   // 404 Handler
   app.use((req: Request, res: Response) => {
